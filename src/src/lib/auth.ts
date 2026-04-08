@@ -1,0 +1,42 @@
+import { NextAuthOptions } from 'next-auth'
+import DiscordProvider from 'next-auth/providers/discord'
+
+export const authOptions: NextAuthOptions = {
+  providers: [
+    DiscordProvider({
+      clientId: process.env.DISCORD_CLIENT_ID!,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET!,
+      authorization: {
+        params: { scope: 'identify guilds guilds.members.read' },
+      },
+    }),
+  ],
+  callbacks: {
+    async signIn({ account }) {
+      const userId = account?.providerAccountId ?? ''
+
+      // 1. Discord ID許可リストに含まれていれば許可
+      const allowedIds = (process.env.DISCORD_ALLOWED_USER_IDS ?? '')
+        .split(',')
+        .map((id) => id.trim())
+        .filter(Boolean)
+
+      if (allowedIds.includes(userId)) return true
+
+      // 2. 指定サーバーのメンバーかつ対象ロールを持つか確認
+      const guildId = process.env.DISCORD_GUILD_ID
+      const staffRoleId = process.env.DISCORD_STAFF_ROLE_ID
+
+      if (!guildId || !staffRoleId) return false
+
+      const res = await fetch(
+        `https://discord.com/api/guilds/${guildId}/members/${userId}`,
+        { headers: { Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}` } }
+      )
+      if (!res.ok) return false
+
+      const member = await res.json()
+      return member.roles.includes(staffRoleId)
+    },
+  },
+}
