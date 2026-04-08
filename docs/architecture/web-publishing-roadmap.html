@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webページ公開 ロードマップ — hawk-wave</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #ffffff;
+    --bg2: #f5f4f0;
+    --bg3: #eceae3;
+    --text: #1a1a18;
+    --text2: #5f5e5a;
+    --text3: #888780;
+    --border: rgba(0,0,0,0.12);
+    --border2: rgba(0,0,0,0.2);
+    --blue-bg: #e6f1fb;
+    --blue-text: #185fa5;
+    --green-bg: #eaf3de;
+    --green-text: #3b6d11;
+    --amber-bg: #faeeda;
+    --amber-text: #854f0b;
+    --purple-bg: #eeedfe;
+    --purple-text: #534ab7;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1e1c; --bg2: #272725; --bg3: #313130;
+      --text: #e8e6dd; --text2: #b4b2a9; --text3: #888780;
+      --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.18);
+      --blue-bg: #0c447c; --blue-text: #b5d4f4;
+      --green-bg: #27500a; --green-text: #c0dd97;
+      --amber-bg: #633806; --amber-text: #fac775;
+      --purple-bg: #3c3489; --purple-text: #cecbf6;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; padding: 40px 24px; max-width: 780px; margin: 0 auto; font-size: 14px; }
+  h1 { font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+  .meta { font-size: 12px; color: var(--text3); margin-bottom: 32px; }
+  .stage { margin-bottom: 24px; }
+  .stage-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--blue-bg); color: var(--blue-text); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section-title { font-size: 15px; font-weight: 500; }
+  .badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; display: inline-block; }
+  .badge-blue { background: var(--blue-bg); color: var(--blue-text); }
+  .badge-green { background: var(--green-bg); color: var(--green-text); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber-text); }
+  .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 12px 16px; margin-bottom: 8px; }
+  .card-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .card-sm { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 10px 12px; flex: 1; min-width: 130px; }
+  .label { font-size: 11px; color: var(--text2); margin-bottom: 3px; }
+  .val { font-size: 13px; font-weight: 500; }
+  .tier { border-left: 3px solid; padding: 10px 14px; margin-bottom: 8px; border-radius: 0 var(--radius) var(--radius) 0; background: var(--bg2); }
+  .tier-purple { border-color: #534AB7; }
+  .tier-blue { border-color: #185FA5; }
+  .tier-green { border-color: #3B6D11; }
+  .tier-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .tier-desc { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
+  .flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+  .flow-item { font-size: 12px; background: var(--bg3); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 5px 10px; line-height: 1.4; }
+  .arrow { font-size: 14px; color: var(--text3); }
+  .note { font-size: 12px; color: var(--text2); background: var(--bg2); border-radius: var(--radius); padding: 8px 12px; margin-top: 8px; }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 20px 0; }
+  .rec { font-size: 11px; background: var(--green-bg); color: var(--green-text); padding: 2px 7px; border-radius: 10px; font-weight: 500; }
+  .roadmap-step { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; }
+  .roadmap-step + .roadmap-step { border-top: 0.5px solid var(--border); }
+  .num-green { background: var(--green-bg); color: var(--green-text); }
+  .num-amber { background: var(--amber-bg); color: var(--amber-text); }
+  .num-blue { background: var(--blue-bg); color: var(--blue-text); }
+  .num-gray { background: var(--bg3); color: var(--text2); }
+  .step-label { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .step-sub { font-size: 12px; color: var(--text2); }
+  small { font-size: 10px; color: var(--text3); display: block; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<h1>Webページ公開 ロードマップ</h1>
+<p class="meta">docs/architecture/web-publishing-roadmap.html &nbsp;|&nbsp; 作成日: 2025-04-09 &nbsp;|&nbsp; hawk-wave</p>
+
+<!-- Stage 1 -->
+<div class="stage">
+  <div class="stage-header">
+    <div class="step-num">1</div>
+    <p class="section-title">全体アーキテクチャ</p>
+  </div>
+  <div class="card">
+    <div class="flow">
+      <div class="flow-item">Claude Code<small>コード生成</small></div>
+      <span class="arrow">→</span>
+      <div class="flow-item">GitHub<small>バージョン管理</small></div>
+      <span class="arrow">→</span>
+      <div class="flow-item" style="border-color:#3b6d11">Vercel / CF Pages<small>ホスティング（無料）</small></div>
+      <span class="arrow">→</span>
+      <div class="flow-item">ブラウザ<small>同盟員が閲覧</small></div>
+    </div>
+    <div class="note">GitHubにpushすると自動でVercel/CF Pagesがデプロイ。CI/CDが無料で使える。</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Stage 2 -->
+<div class="stage">
+  <div class="stage-header">
+    <div class="step-num">2</div>
+    <p class="section-title">3つのアクセス層</p>
+  </div>
+
+  <div class="tier tier-purple">
+    <div class="tier-title">幹部レベル — Discord OAuth 認証 <span class="badge badge-blue">Next.js + NextAuth</span></div>
+    <p class="tier-desc">Discordアカウントでログイン → 特定のサーバー/ロールを持つ人だけアクセス許可。Vercelのサーバーレス関数で認証処理。</p>
+    <div class="flow">
+      <div class="flow-item">Discord Developer App</div><span class="arrow">→</span>
+      <div class="flow-item">NextAuth.js</div><span class="arrow">→</span>
+      <div class="flow-item">ロール確認</div><span class="arrow">→</span>
+      <div class="flow-item">ページ表示</div>
+    </div>
+  </div>
+
+  <div class="tier tier-blue">
+    <div class="tier-title">同盟レベル — パスワード制限 <span class="badge badge-amber">最も手軽</span></div>
+    <p class="tier-desc">Vercel環境変数にPWを設定し、Middlewareでチェック。または静的サイト + Cloudflare Access（無料枠あり）。</p>
+    <div class="flow">
+      <div class="flow-item">パスワード入力</div><span class="arrow">→</span>
+      <div class="flow-item">Vercel Middleware</div><span class="arrow">→</span>
+      <div class="flow-item">Cookieセット</div><span class="arrow">→</span>
+      <div class="flow-item">閲覧OK</div>
+    </div>
+  </div>
+
+  <div class="tier tier-green">
+    <div class="tier-title">全体公開 — 静的サイト <span class="badge badge-green">最もシンプル</span></div>
+    <p class="tier-desc">認証なし。ゲームルール解説・イベント告知など。GitHub Pages でも可。</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Stage 3 -->
+<div class="stage">
+  <div class="stage-header">
+    <div class="step-num">3</div>
+    <p class="section-title">フレームワーク選択</p>
+  </div>
+  <div class="card">
+    <div class="card-row">
+      <div class="card-sm">
+        <div class="label">おすすめ <span class="rec">✓</span></div>
+        <div class="val">Next.js</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px">認証・多言語・API全部入り。Vercelと相性◎</div>
+      </div>
+      <div class="card-sm">
+        <div class="label">データ分析向け</div>
+        <div class="val">Streamlit</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px">Python。別サービス（Streamlit Cloud）で無料公開可。Next.jsと併用もOK</div>
+      </div>
+      <div class="card-sm">
+        <div class="label">超シンプル構成</div>
+        <div class="val">Astro / Vite</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px">静的ページのみならこれで十分。CF Pagesと相性◎</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Stage 4 -->
+<div class="stage">
+  <div class="stage-header">
+    <div class="step-num">4</div>
+    <p class="section-title">Google Sheets 連携</p>
+  </div>
+  <div class="card">
+    <div class="flow">
+      <div class="flow-item">スプレッドシート<small>戦闘データ入力</small></div>
+      <span class="arrow">→</span>
+      <div class="flow-item">Sheets API v4<small>or 公開CSV</small></div>
+      <span class="arrow">→</span>
+      <div class="flow-item">Next.js API Route<small>サーバー側fetch</small></div>
+      <span class="arrow">→</span>
+      <div class="flow-item">ページ描画<small>表/チャート</small></div>
+    </div>
+    <div class="note">簡単な方法：「ウェブに公開」→ CSV URL を fetch するだけ。APIキー不要。</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Stage 5 -->
+<div class="stage">
+  <div class="stage-header">
+    <div class="step-num">5</div>
+    <p class="section-title">多言語対応</p>
+  </div>
+  <div class="card">
+    <div class="card-row">
+      <div class="card-sm">
+        <div class="label">Next.js標準</div>
+        <div class="val">next-intl</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px">/ja /en /ko など<br>URLベースで切替</div>
+      </div>
+      <div class="card-sm">
+        <div class="label">翻訳管理</div>
+        <div class="val">JSON ファイル</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px">locales/ja.json<br>Claude Codeで生成</div>
+      </div>
+      <div class="card-sm">
+        <div class="label">自動翻訳</div>
+        <div class="val">DeepL API</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px">無料枠50万字/月<br>Claude Codeで組込</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Stage 6 -->
+<div class="stage">
+  <div class="stage-header">
+    <div class="step-num">6</div>
+    <p class="section-title">学習ロードマップ（推奨順）</p>
+  </div>
+  <div class="card">
+    <div class="roadmap-step">
+      <div class="step-num num-green">①</div>
+      <div><div class="step-label">GitHub + Vercel で静的サイトを公開</div><div class="step-sub">まずpush→自動デプロイの感覚をつかむ。公開ページから始める。</div></div>
+    </div>
+    <div class="roadmap-step">
+      <div class="step-num num-amber">②</div>
+      <div><div class="step-label">パスワード保護ページを追加</div><div class="step-sub">Vercel Middlewareでシンプル認証。Sheets CSV連携も同時に試す。</div></div>
+    </div>
+    <div class="roadmap-step">
+      <div class="step-num num-blue">③</div>
+      <div><div class="step-label">Discord OAuth 認証を実装</div><div class="step-sub">NextAuth.js + Discord Provider。幹部ロール判定まで実装。</div></div>
+    </div>
+    <div class="roadmap-step">
+      <div class="step-num num-gray">④</div>
+      <div><div class="step-label">Streamlit でデータ分析ページを追加</div><div class="step-sub">施設の破壊値シミュレーター等。Streamlit Cloud で別URLとして公開。</div></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
