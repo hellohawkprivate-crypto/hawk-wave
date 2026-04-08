@@ -4,23 +4,31 @@ import { getToken } from 'next-auth/jwt'
 import createIntlMiddleware from 'next-intl/middleware'
 import { routing } from './i18n/routing'
 
-// next-intl のロケール処理ミドルウェア
 const intlMiddleware = createIntlMiddleware(routing)
+
+// ロケールプレフィックスを除いたパスを取得
+function stripLocale(pathname: string): string {
+  const locales = routing.locales.join('|')
+  return pathname.replace(new RegExp(`^/(${locales})`), '') || '/'
+}
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const pathWithoutLocale = stripLocale(pathname)
 
   // /members/* はパスワード Cookie で保護
-  if (pathname.startsWith('/members')) {
+  if (pathWithoutLocale.startsWith('/members')) {
     const cookie = request.cookies.get('members-auth')
     if (cookie?.value !== process.env.MEMBERS_PASSWORD) {
-      return NextResponse.redirect(new URL('/login', request.url))
+      // ロケールを保持してログインページへリダイレクト
+      const locale = pathname.match(/^\/(ja|en|ko|zh-TW|zh-CN|ar)/)?.[1] ?? 'ja'
+      return NextResponse.redirect(new URL(`/${locale}/login`, request.url))
     }
     return NextResponse.next()
   }
 
   // /staff/* は Discord OAuth セッションで保護
-  if (pathname.startsWith('/staff')) {
+  if (pathWithoutLocale.startsWith('/staff')) {
     const token = await getToken({
       req: request,
       secret: process.env.NEXTAUTH_SECRET,
@@ -36,10 +44,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/members/:path*',
-    '/staff/:path*',
-    // next-intl が必要なルート（APIとstaticを除く）
-    '/((?!api|_next|_vercel|.*\\..*).*)',
-  ],
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)',],
 }

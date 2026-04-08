@@ -21,5 +21,18 @@
     "week2": "١١ أبريل (الجمعة)",
     "week3": "١٨ أبريل (الجمعة)",
     "week4": "٢٥ أبريل (الجمعة)"
+  },
+  "prep": {
+    "appName": "Goldvein War Prep",
+    "nav": {
+      "sheet": "جدول البيانات",
+      "strategy": "دليل الاستراتيجية",
+      "rules": "القواعد",
+      "discussion": "موضوعات النقاش"
+    },
+    "sheet": { "heading": "جدول البيانات" },
+    "strategy": { "heading": "دليل الاستراتيجية" },
+    "rules": { "heading": "القواعد" },
+    "discussion": { "heading": "موضوعات النقاش" }
   }
 }

@@ -21,5 +21,18 @@
     "week2": "4月11日（周五）",
     "week3": "4月18日（周五）",
     "week4": "4月25日（周五）"
+  },
+  "prep": {
+    "appName": "Goldvein War Prep",
+    "nav": {
+      "sheet": "数据表",
+      "strategy": "战略指南",
+      "rules": "规则",
+      "discussion": "讨论主题"
+    },
+    "sheet": { "heading": "数据表" },
+    "strategy": { "heading": "战略指南" },
+    "rules": { "heading": "规则" },
+    "discussion": { "heading": "讨论主题" }
   }
 }

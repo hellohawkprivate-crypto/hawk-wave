@@ -21,5 +21,18 @@
     "week2": "4月11日（金）",
     "week3": "4月18日（金）",
     "week4": "4月25日（金）"
+  },
+  "prep": {
+    "appName": "Goldvein War Prep",
+    "nav": {
+      "sheet": "データシート",
+      "strategy": "戦略の考え方",
+      "rules": "ルール",
+      "discussion": "話し合いたいこと"
+    },
+    "sheet": { "heading": "データシート" },
+    "strategy": { "heading": "戦略の考え方" },
+    "rules": { "heading": "ルール" },
+    "discussion": { "heading": "話し合いたいこと" }
   }
 }

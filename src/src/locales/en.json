@@ -21,5 +21,18 @@
     "week2": "April 11 (Fri)",
     "week3": "April 18 (Fri)",
     "week4": "April 25 (Fri)"
+  },
+  "prep": {
+    "appName": "Goldvein War Prep",
+    "nav": {
+      "sheet": "Data Sheet",
+      "strategy": "Strategy Guide",
+      "rules": "Rules",
+      "discussion": "Discussion Topics"
+    },
+    "sheet": { "heading": "Data Sheet" },
+    "strategy": { "heading": "Strategy Guide" },
+    "rules": { "heading": "Rules" },
+    "discussion": { "heading": "Discussion Topics" }
   }
 }
