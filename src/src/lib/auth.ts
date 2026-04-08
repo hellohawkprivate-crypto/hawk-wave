@@ -1,5 +1,6 @@
 import { NextAuthOptions } from 'next-auth'
 import DiscordProvider from 'next-auth/providers/discord'
+import { fetchAllowedDiscordIds } from './sheets'
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -16,12 +17,8 @@ export const authOptions: NextAuthOptions = {
     async signIn({ account }) {
       const userId = account?.providerAccountId ?? ''
 
-      // 1. Discord ID許可リストに含まれていれば許可
-      const allowedIds = (process.env.DISCORD_ALLOWED_USER_IDS ?? '')
-        .split(',')
-        .map((id) => id.trim())
-        .filter(Boolean)
-
+      // 1. Google Sheets の許可リストに含まれていれば許可
+      const allowedIds = await fetchAllowedDiscordIds()
       if (allowedIds.includes(userId)) return true
 
       // 2. 指定サーバーのメンバーかつ対象ロールを持つか確認
