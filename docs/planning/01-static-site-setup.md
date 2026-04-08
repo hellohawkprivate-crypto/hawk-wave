@@ -1,6 +1,6 @@
 # 01 — GitHub + Vercel で静的サイトを公開する
 
-**ステータス**: 未着手  
+**ステータス**: Step 2 完了（Next.js初期化済み）  
 **難易度**: ⭐（初心者向け）  
 **所要時間**: 1〜2時間
 
@@ -16,7 +16,7 @@ GitHub push → 自動デプロイの流れを体験する。
 ## 前提条件
 
 - [x] GitHubアカウントを作成済み
-- [ ] Node.js 18以上がインストール済み（`node -v` で確認）
+- [x] Node.js 18以上がインストール済み（`node -v` で確認）→ nvm で v22.22.2 インストール済み
 - [ ] Claude Code がインストール済み（`npm install -g @anthropic-ai/claude-code`）
 
 ---
