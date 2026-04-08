@@ -1,0 +1,25 @@
+{
+  "title": "금맥 공방전",
+  "subtitle": "게임 규칙 안내",
+  "overview": {
+    "heading": "게임 개요",
+    "defense": "방어측",
+    "attack": "공격측",
+    "servers": "서버",
+    "winCondition": "공격측이 총 파괴 점수 {points} pt에 도달하면 공격측 승리"
+  },
+  "facilities": {
+    "heading": "시설 종류 및 파괴 점수",
+    "smallBase": "소형 거점",
+    "metropolis": "대도시",
+    "mediumBase": "중형 거점",
+    "militaryFortress": "군사 요새",
+    "goldenPalace": "골든 팰리스"
+  },
+  "schedule": {
+    "heading": "전투 일정",
+    "week2": "4월 11일 (금)",
+    "week3": "4월 18일 (금)",
+    "week4": "4월 25일 (금)"
+  }
+}

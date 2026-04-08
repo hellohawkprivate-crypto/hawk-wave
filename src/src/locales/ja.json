@@ -1,0 +1,25 @@
+{
+  "title": "金脈攻防戦",
+  "subtitle": "ゲームルール解説",
+  "overview": {
+    "heading": "ゲーム概要",
+    "defense": "防衛側",
+    "attack": "攻撃側",
+    "servers": "サーバー",
+    "winCondition": "攻撃側が合計破壊値 {points} pt に達すると攻撃側勝利"
+  },
+  "facilities": {
+    "heading": "施設の種類と破壊値",
+    "smallBase": "小型拠点",
+    "metropolis": "大都市",
+    "mediumBase": "中型拠点",
+    "militaryFortress": "軍事要塞",
+    "goldenPalace": "ゴールデンパレス"
+  },
+  "schedule": {
+    "heading": "戦闘スケジュール",
+    "week2": "4月11日（金）",
+    "week3": "4月18日（金）",
+    "week4": "4月25日（金）"
+  }
+}

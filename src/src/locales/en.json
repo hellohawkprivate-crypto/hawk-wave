@@ -1,0 +1,25 @@
+{
+  "title": "Gold Mine Siege",
+  "subtitle": "Game Rules Guide",
+  "overview": {
+    "heading": "Overview",
+    "defense": "Defense",
+    "attack": "Attack",
+    "servers": "Servers",
+    "winCondition": "Attackers win when total destruction points reach {points} pt"
+  },
+  "facilities": {
+    "heading": "Facilities & Destruction Points",
+    "smallBase": "Small Base",
+    "metropolis": "Metropolis",
+    "mediumBase": "Medium Base",
+    "militaryFortress": "Military Fortress",
+    "goldenPalace": "Golden Palace"
+  },
+  "schedule": {
+    "heading": "Battle Schedule",
+    "week2": "April 11 (Fri)",
+    "week3": "April 18 (Fri)",
+    "week4": "April 25 (Fri)"
+  }
+}

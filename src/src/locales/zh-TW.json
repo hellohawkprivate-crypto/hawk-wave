@@ -1,0 +1,25 @@
+{
+  "title": "金脈攻防戰",
+  "subtitle": "遊戲規則說明",
+  "overview": {
+    "heading": "遊戲概要",
+    "defense": "防守方",
+    "attack": "攻擊方",
+    "servers": "伺服器",
+    "winCondition": "攻擊方累計破壞值達到 {points} pt 即為攻擊方勝利"
+  },
+  "facilities": {
+    "heading": "設施種類與破壞值",
+    "smallBase": "小型據點",
+    "metropolis": "大都市",
+    "mediumBase": "中型據點",
+    "militaryFortress": "軍事要塞",
+    "goldenPalace": "黃金宮殿"
+  },
+  "schedule": {
+    "heading": "戰鬥日程",
+    "week2": "4月11日（五）",
+    "week3": "4月18日（五）",
+    "week4": "4月25日（五）"
+  }
+}
