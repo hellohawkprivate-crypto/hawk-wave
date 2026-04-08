@@ -25,14 +25,56 @@
   "prep": {
     "appName": "Goldvein War Prep",
     "nav": {
-      "sheet": "Data Sheet",
+      "sheet": "Strategy Sheet",
       "strategy": "Strategy Guide",
       "rules": "Rules",
-      "discussion": "Discussion Topics"
+      "discussion": "ToDo",
+      "analysis": "Power Analysis",
+      "guide": "How to Play",
+      "simulator": "Simulator"
     },
-    "sheet": { "heading": "Data Sheet" },
-    "strategy": { "heading": "Strategy Guide" },
-    "rules": { "heading": "Rules" },
-    "discussion": { "heading": "Discussion Topics" }
+    "sheet": {
+      "heading": "Strategy Sheet",
+      "tabs": {
+        "facility": "Facility Pt",
+        "condition": "Victory Condition",
+        "scenario": "Victory Scenario",
+        "initial": "Initial Values"
+      },
+      "download": "Download Excel"
+    },
+    "strategy": {
+      "heading": "Strategy Guide"
+    },
+    "rules": {
+      "heading": "Rules"
+    },
+    "discussion": {
+      "heading": "ToDo"
+    },
+    "analysis": {
+      "heading": "Power Analysis",
+      "tabs": {
+        "hero": "Hero Power",
+        "alliance": "Alliance Power"
+      },
+      "filters": {
+        "camp": "Camp",
+        "server": "Server",
+        "tag": "Alliance Tag",
+        "power": "Power",
+        "all": "All"
+      },
+      "stats": {
+        "count": "Count",
+        "average": "Avg Power"
+      },
+      "chart": {
+        "heading": "Power Distribution",
+        "xAxis": "Power",
+        "yAxis": "Count"
+      },
+      "download": "Download Excel"
+    }
   }
 }

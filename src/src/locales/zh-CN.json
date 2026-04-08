@@ -25,14 +25,56 @@
   "prep": {
     "appName": "Goldvein War Prep",
     "nav": {
-      "sheet": "数据表",
+      "sheet": "战略表",
       "strategy": "战略指南",
       "rules": "规则",
-      "discussion": "讨论主题"
+      "discussion": "ToDo",
+      "analysis": "战力分析",
+      "guide": "玩法介绍",
+      "simulator": "模拟器"
     },
-    "sheet": { "heading": "数据表" },
-    "strategy": { "heading": "战略指南" },
-    "rules": { "heading": "规则" },
-    "discussion": { "heading": "讨论主题" }
+    "sheet": {
+      "heading": "战略表",
+      "tabs": {
+        "facility": "设施 Pt",
+        "condition": "胜利条件",
+        "scenario": "胜利场景",
+        "initial": "设施初始值"
+      },
+      "download": "下载 Excel"
+    },
+    "strategy": {
+      "heading": "战略指南"
+    },
+    "rules": {
+      "heading": "规则"
+    },
+    "discussion": {
+      "heading": "ToDo"
+    },
+    "analysis": {
+      "heading": "战力分析",
+      "tabs": {
+        "hero": "英雄战力",
+        "alliance": "联盟战力"
+      },
+      "filters": {
+        "camp": "阵营",
+        "server": "服务器",
+        "tag": "联盟标签",
+        "power": "战力",
+        "all": "全部"
+      },
+      "stats": {
+        "count": "数量",
+        "average": "平均战力"
+      },
+      "chart": {
+        "heading": "战力分布",
+        "xAxis": "战力",
+        "yAxis": "人数"
+      },
+      "download": "下载 Excel"
+    }
   }
 }

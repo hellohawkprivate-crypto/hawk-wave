@@ -25,14 +25,56 @@
   "prep": {
     "appName": "Goldvein War Prep",
     "nav": {
-      "sheet": "データシート",
+      "sheet": "戦略シート",
       "strategy": "戦略の考え方",
       "rules": "ルール",
-      "discussion": "話し合いたいこと"
+      "discussion": "ToDo",
+      "analysis": "戦力分析",
+      "guide": "遊び方",
+      "simulator": "シミュレーター"
     },
-    "sheet": { "heading": "データシート" },
-    "strategy": { "heading": "戦略の考え方" },
-    "rules": { "heading": "ルール" },
-    "discussion": { "heading": "話し合いたいこと" }
+    "sheet": {
+      "heading": "戦略シート",
+      "tabs": {
+        "facility": "施設のPt",
+        "condition": "勝利条件",
+        "scenario": "勝利シナリオ",
+        "initial": "施設の初期値"
+      },
+      "download": "Excelダウンロード"
+    },
+    "strategy": {
+      "heading": "戦略の考え方"
+    },
+    "rules": {
+      "heading": "ルール"
+    },
+    "discussion": {
+      "heading": "ToDo"
+    },
+    "analysis": {
+      "heading": "戦力分析",
+      "tabs": {
+        "hero": "英雄総戦力",
+        "alliance": "連盟戦力"
+      },
+      "filters": {
+        "camp": "陣営",
+        "server": "サーバー",
+        "tag": "連盟タグ",
+        "power": "戦力",
+        "all": "すべて"
+      },
+      "stats": {
+        "count": "件数",
+        "average": "平均戦力"
+      },
+      "chart": {
+        "heading": "戦力分布",
+        "xAxis": "戦力",
+        "yAxis": "人数"
+      },
+      "download": "Excelダウンロード"
+    }
   }
 }

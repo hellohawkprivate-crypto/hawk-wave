@@ -25,14 +25,56 @@
   "prep": {
     "appName": "Goldvein War Prep",
     "nav": {
-      "sheet": "데이터 시트",
+      "sheet": "전략 시트",
       "strategy": "전략 가이드",
       "rules": "규칙",
-      "discussion": "토론 주제"
+      "discussion": "ToDo",
+      "analysis": "전력 분석",
+      "guide": "플레이 방법",
+      "simulator": "시뮬레이터"
     },
-    "sheet": { "heading": "데이터 시트" },
-    "strategy": { "heading": "전략 가이드" },
-    "rules": { "heading": "규칙" },
-    "discussion": { "heading": "토론 주제" }
+    "sheet": {
+      "heading": "전략 시트",
+      "tabs": {
+        "facility": "시설 Pt",
+        "condition": "승리 조건",
+        "scenario": "승리 시나리오",
+        "initial": "시설 초기값"
+      },
+      "download": "Excel 다운로드"
+    },
+    "strategy": {
+      "heading": "전략 가이드"
+    },
+    "rules": {
+      "heading": "규칙"
+    },
+    "discussion": {
+      "heading": "ToDo"
+    },
+    "analysis": {
+      "heading": "전력 분석",
+      "tabs": {
+        "hero": "영웅 전투력",
+        "alliance": "연맹 전투력"
+      },
+      "filters": {
+        "camp": "진영",
+        "server": "서버",
+        "tag": "연맹 태그",
+        "power": "전투력",
+        "all": "전체"
+      },
+      "stats": {
+        "count": "건수",
+        "average": "평균 전투력"
+      },
+      "chart": {
+        "heading": "전투력 분포",
+        "xAxis": "전투력",
+        "yAxis": "인원수"
+      },
+      "download": "Excel 다운로드"
+    }
   }
 }

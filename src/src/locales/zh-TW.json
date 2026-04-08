@@ -25,14 +25,56 @@
   "prep": {
     "appName": "Goldvein War Prep",
     "nav": {
-      "sheet": "資料表",
+      "sheet": "戰略表",
       "strategy": "戰略指南",
       "rules": "規則",
-      "discussion": "討論主題"
+      "discussion": "ToDo",
+      "analysis": "戰力分析",
+      "guide": "玩法介紹",
+      "simulator": "模擬器"
     },
-    "sheet": { "heading": "資料表" },
-    "strategy": { "heading": "戰略指南" },
-    "rules": { "heading": "規則" },
-    "discussion": { "heading": "討論主題" }
+    "sheet": {
+      "heading": "戰略表",
+      "tabs": {
+        "facility": "設施 Pt",
+        "condition": "勝利條件",
+        "scenario": "勝利場景",
+        "initial": "設施初始值"
+      },
+      "download": "下載 Excel"
+    },
+    "strategy": {
+      "heading": "戰略指南"
+    },
+    "rules": {
+      "heading": "規則"
+    },
+    "discussion": {
+      "heading": "ToDo"
+    },
+    "analysis": {
+      "heading": "戰力分析",
+      "tabs": {
+        "hero": "英雄戰力",
+        "alliance": "聯盟戰力"
+      },
+      "filters": {
+        "camp": "陣營",
+        "server": "伺服器",
+        "tag": "聯盟標籤",
+        "power": "戰力",
+        "all": "全部"
+      },
+      "stats": {
+        "count": "數量",
+        "average": "平均戰力"
+      },
+      "chart": {
+        "heading": "戰力分布",
+        "xAxis": "戰力",
+        "yAxis": "人數"
+      },
+      "download": "下載 Excel"
+    }
   }
 }

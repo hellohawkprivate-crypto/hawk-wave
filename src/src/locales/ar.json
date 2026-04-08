@@ -25,14 +25,56 @@
   "prep": {
     "appName": "Goldvein War Prep",
     "nav": {
-      "sheet": "جدول البيانات",
+      "sheet": "ورقة الاستراتيجية",
       "strategy": "دليل الاستراتيجية",
       "rules": "القواعد",
-      "discussion": "موضوعات النقاش"
+      "discussion": "ToDo",
+      "analysis": "تحليل القوة",
+      "guide": "كيفية اللعب",
+      "simulator": "محاكي"
     },
-    "sheet": { "heading": "جدول البيانات" },
-    "strategy": { "heading": "دليل الاستراتيجية" },
-    "rules": { "heading": "القواعد" },
-    "discussion": { "heading": "موضوعات النقاش" }
+    "sheet": {
+      "heading": "ورقة الاستراتيجية",
+      "tabs": {
+        "facility": "نقاط المنشآت",
+        "condition": "شروط النصر",
+        "scenario": "سيناريو النصر",
+        "initial": "القيم الأولية"
+      },
+      "download": "تحميل Excel"
+    },
+    "strategy": {
+      "heading": "دليل الاستراتيجية"
+    },
+    "rules": {
+      "heading": "القواعد"
+    },
+    "discussion": {
+      "heading": "ToDo"
+    },
+    "analysis": {
+      "heading": "تحليل القوة",
+      "tabs": {
+        "hero": "قوة الأبطال",
+        "alliance": "قوة التحالف"
+      },
+      "filters": {
+        "camp": "المعسكر",
+        "server": "الخادم",
+        "tag": "علامة التحالف",
+        "power": "القوة",
+        "all": "الكل"
+      },
+      "stats": {
+        "count": "العدد",
+        "average": "متوسط القوة"
+      },
+      "chart": {
+        "heading": "توزيع القوة",
+        "xAxis": "القوة",
+        "yAxis": "العدد"
+      },
+      "download": "تحميل Excel"
+    }
   }
 }
