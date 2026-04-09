@@ -41,7 +41,8 @@
         "scenario": "勝利シナリオ",
         "initial": "施設の初期値"
       },
-      "download": "Excelダウンロード"
+      "download": "Excelダウンロード",
+      "scenarioNote": "(B)がGood。敵の高火力が強い > GPは厳しい。施設を大量に奪う計画は妨害されやすい。\n(A) 初戦・二戦目で負けて、攻撃側のバフをつける\n(B) 初戦・二戦目で50%%を目指す"
     },
     "strategy": {
       "heading": "戦略の考え方"

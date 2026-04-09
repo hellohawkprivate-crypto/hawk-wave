@@ -2,11 +2,11 @@ import { getLocale } from 'next-intl/server'
 import { getRulesContent } from './content'
 
 const facilityData = [
-  { count: 20, pt: 40, weeks: 'Week2–4', turret: 0, siege: 0 },
-  { count: 4, pt: 175, weeks: 'Week2–4', turret: 2, siege: 0 },
-  { count: 12, pt: 251, weeks: 'Week3–4', turret: 0, siege: 0 },
-  { count: 4, pt: 496, weeks: 'Week3–4', turret: 2, siege: 1 },
-  { count: 1, pt: 3505, weeks: 'Week4', turret: 4, siege: 2 },
+  { count: 20, pt: 40, weeks: '2W-4W', turret: 0, siege: 0 },
+  { count: 4, pt: 175, weeks: '2W-4W', turret: 2, siege: 0 },
+  { count: 12, pt: 251, weeks: '3W-4W', turret: 0, siege: 0 },
+  { count: 4, pt: 496, weeks: '3W-4W', turret: 2, siege: 1 },
+  { count: 1, pt: 3505, weeks: '4W', turret: 4, siege: 2 },
 ]
 
 export default async function RulesPage() {
@@ -33,7 +33,7 @@ export default async function RulesPage() {
       <Section title={c.scheduleTitle}>
         <p className="text-sm text-gray-600 mb-3">{c.scheduleDesc}</p>
         <div className="space-y-2">
-          {['Week 2', 'Week 3', 'Week 4'].map((week, i) => (
+          {['2W', '3W', '4W'].map((week, i) => (
             <div key={week} className="flex items-center gap-4 bg-gray-50 rounded-lg px-4 py-3">
               <span className="text-xs font-semibold text-gray-500 w-16">{week}</span>
               <span className="text-gray-800 font-medium">{c.scheduleDate[i]}</span>

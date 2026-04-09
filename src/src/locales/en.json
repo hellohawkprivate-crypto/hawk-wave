@@ -41,7 +41,8 @@
         "scenario": "Victory Scenario",
         "initial": "Initial Values"
       },
-      "download": "Download Excel"
+      "download": "Download Excel",
+      "scenarioNote": "(B) is recommended. Enemy elites are strong > GP is tough. Plans to mass-capture facilities are easily disrupted.\n(A) Lose W2/W3 to earn Attack buffs\n(B) Aim for 50%% in W2/W3"
     },
     "strategy": {
       "heading": "Strategy Guide"

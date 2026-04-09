@@ -41,7 +41,8 @@
         "scenario": "승리 시나리오",
         "initial": "시설 초기값"
       },
-      "download": "Excel 다운로드"
+      "download": "Excel 다운로드",
+      "scenarioNote": "(B) 추천. 적 고화력이 강하다 > GP는 어렵다. 시설 대량 점거 계획은 방해받기 쉽다.\n(A) 초전·2전에서 지고, 공격측 버프를 얻는다\n(B) 초전·2전에서 50%%를 목표로 한다"
     },
     "strategy": {
       "heading": "전략 가이드"

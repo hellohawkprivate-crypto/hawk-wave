@@ -41,7 +41,8 @@
         "scenario": "胜利场景",
         "initial": "设施初始值"
       },
-      "download": "下载 Excel"
+      "download": "下载 Excel",
+      "scenarioNote": "推荐(B)。敌方精锐很强 > GP很难。大量抢占设施的计划容易被干扰。\n(A) 前两场失利，获得进攻方增益\n(B) 前两场目标50%%"
     },
     "strategy": {
       "heading": "战略指南"

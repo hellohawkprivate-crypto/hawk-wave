@@ -41,7 +41,8 @@
         "scenario": "勝利場景",
         "initial": "設施初始值"
       },
-      "download": "下載 Excel"
+      "download": "下載 Excel",
+      "scenarioNote": "推薦(B)。敵方精銳很強 > GP很難。大量搶佔設施的計劃容易被干擾。\n(A) 前兩場失利，獲得進攻方增益\n(B) 前兩場目標50%%"
     },
     "strategy": {
       "heading": "戰略指南"

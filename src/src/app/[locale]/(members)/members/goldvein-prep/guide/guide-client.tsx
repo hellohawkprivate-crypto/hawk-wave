@@ -26,9 +26,9 @@ export function GuideClient({ content: c }: { content: GuideContent }) {
           <p>{c.schedule_desc}</p>
           <div className="flex gap-2 mt-2">
             {[
-              { week: '1W', count: 24 },
-              { week: '2W', count: 40 },
-              { week: '3W', count: 41 },
+              { week: '2W', count: 24 },
+              { week: '3W', count: 40 },
+              { week: '4W', count: 41 },
             ].map((w) => (
               <span key={w.week} className="bg-gray-100 rounded-lg px-3 py-1 text-sm font-bold text-gray-700">
                 {w.week}: <span className="text-amber-600">{w.count}</span>

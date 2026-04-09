@@ -10,6 +10,7 @@ type DataTab = {
   facilityRows: string[][]
   conditionRows: string[][]
   downloadUrl: string
+  note?: string
 }
 
 type IframeTab = {
@@ -18,6 +19,8 @@ type IframeTab = {
   type: 'iframe'
   embedUrl: string
   downloadUrl: string
+  note?: string
+  image?: string
 }
 
 type MapTab = {
@@ -26,6 +29,7 @@ type MapTab = {
   type: 'map'
   facilities: { tag: string; name: string; pt: string; initial: string }[]
   downloadUrl: string
+  note?: string
 }
 
 type Tab = DataTab | IframeTab | MapTab
@@ -106,8 +110,17 @@ export function SheetTabs({ tabs, downloadLabel }: { tabs: Tab[]; downloadLabel:
             </button>
           ))}
         </div>
-        <DownloadButton href={current.downloadUrl} label={downloadLabel} />
+        {!(current.type === 'iframe' && current.image) && (
+          <DownloadButton href={current.downloadUrl} label={downloadLabel} />
+        )}
       </div>
+
+      {/* 補足コメント */}
+      {current.note && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-4 text-sm text-amber-800 whitespace-pre-line">
+          {current.note}
+        </div>
+      )}
 
       {/* コンテンツ */}
       {current.type === 'data' ? (
@@ -117,6 +130,18 @@ export function SheetTabs({ tabs, downloadLabel }: { tabs: Tab[]; downloadLabel:
           </div>
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <CsvTable rows={current.conditionRows} />
+          </div>
+        </div>
+      ) : current.type === 'iframe' && current.image ? (
+        <div className="space-y-4">
+          {/* 画像メイン表示 */}
+          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={current.image} alt={current.label} className="w-full" />
+          </div>
+          {/* Excelダウンロード */}
+          <div className="flex justify-end">
+            <DownloadButton href={current.downloadUrl} label={downloadLabel} />
           </div>
         </div>
       ) : current.type === 'map' ? (

@@ -28,9 +28,9 @@ export default async function SheetPage() {
   ])
 
   const tabs: Array<
-    | { key: string; label: string; type: 'data'; facilityRows: string[][]; conditionRows: string[][]; downloadUrl: string }
-    | { key: string; label: string; type: 'iframe'; embedUrl: string; downloadUrl: string }
-    | { key: string; label: string; type: 'map'; facilities: { tag: string; name: string; pt: string; initial: string }[]; downloadUrl: string }
+    | { key: string; label: string; type: 'data'; facilityRows: string[][]; conditionRows: string[][]; downloadUrl: string; note?: string }
+    | { key: string; label: string; type: 'iframe'; embedUrl: string; downloadUrl: string; note?: string; image?: string }
+    | { key: string; label: string; type: 'map'; facilities: { tag: string; name: string; pt: string; initial: string }[]; downloadUrl: string; note?: string }
   > = [
     {
       key: 'condition',
@@ -53,6 +53,8 @@ export default async function SheetPage() {
       type: 'iframe',
       embedUrl: embedUrl(gids.scenario),
       downloadUrl: excelDownloadUrl(gids.scenario),
+      note: t('scenarioNote'),
+      image: locale === 'ja' ? '/scenario-ja.png' : '/scenario-en.png',
     },
   ]
 
