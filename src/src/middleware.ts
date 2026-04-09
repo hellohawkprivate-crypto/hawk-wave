@@ -21,7 +21,7 @@ export async function middleware(request: NextRequest) {
     const cookie = request.cookies.get('members-auth')
     if (cookie?.value !== process.env.MEMBERS_PASSWORD) {
       const locale = pathname.match(/^\/(ja|en|ko|zh-TW|zh-CN|ar)/)?.[1] ?? 'ja'
-      return NextResponse.redirect(new URL(`/${locale}/login`, request.url))
+      return NextResponse.redirect(new URL(`/${locale}/goldvein-prep/login`, request.url))
     }
     // 認証OK → ロケール処理も実行
     return intlMiddleware(request)
