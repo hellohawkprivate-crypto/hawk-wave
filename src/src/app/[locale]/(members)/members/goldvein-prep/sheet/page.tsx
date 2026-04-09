@@ -2,23 +2,19 @@ import { embedUrl, excelDownloadUrl, fetchCsvRows } from '@/lib/sheets'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { SheetTabs } from './sheet-tabs'
 
-function getGids(locale: string) {
-  const isJa = locale === 'ja'
-  return {
-    facility: isJa ? process.env.PREP_GID_JA_FACILITY! : process.env.PREP_GID_EN_FACILITY!,
-    condition: isJa ? process.env.PREP_GID_JA_CONDITION! : process.env.PREP_GID_EN_CONDITION!,
-    scenario: isJa ? process.env.PREP_GID_JA_SCENARIO! : process.env.PREP_GID_EN_SCENARIO!,
-    initial: process.env.PREP_GID_JA_INITIAL ?? '0',
-  }
+// 優先順位: 該当言語 → 英語 → 日本語
+function pickGid(locale: string, jaKey: string, enKey: string): string {
+  if (locale === 'ja') return process.env[jaKey] ?? ''
+  return process.env[enKey] ?? process.env[jaKey] ?? ''
 }
 
-function parseInitialData(rows: string[][]) {
-  return rows.slice(1).map((cols) => ({
-    tag: (cols[0] ?? '').trim(),
-    name: (cols[1] ?? '').trim(),
-    pt: (cols[2] ?? '').trim(),
-    initial: (cols[3] ?? '').trim(),
-  })).filter((f) => f.tag)
+function getGids(locale: string) {
+  return {
+    facility: pickGid(locale, 'PREP_GID_JA_FACILITY', 'PREP_GID_EN_FACILITY'),
+    condition: pickGid(locale, 'PREP_GID_JA_CONDITION', 'PREP_GID_EN_CONDITION'),
+    scenario: pickGid(locale, 'PREP_GID_JA_SCENARIO', 'PREP_GID_EN_SCENARIO'),
+    initial: process.env.PREP_GID_JA_INITIAL ?? '0',
+  }
 }
 
 export default async function SheetPage() {
@@ -26,10 +22,9 @@ export default async function SheetPage() {
   const t = await getTranslations('prep.sheet')
   const gids = getGids(locale)
 
-  const [facilityRows, conditionRows, initialRows] = await Promise.all([
+  const [facilityRows, conditionRows] = await Promise.all([
     fetchCsvRows(gids.facility),
     fetchCsvRows(gids.condition),
-    fetchCsvRows(gids.initial),
   ])
 
   const tabs: Array<
