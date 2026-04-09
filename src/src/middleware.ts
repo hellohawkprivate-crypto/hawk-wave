@@ -16,6 +16,12 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const pathWithoutLocale = stripLocale(pathname)
 
+  // /goldvein-prep/ (loginを除く) → ログインページへリダイレクト
+  if (pathWithoutLocale.startsWith('/goldvein-prep') && !pathWithoutLocale.includes('/login')) {
+    const locale = pathname.match(/^\/(ja|en|ko|zh-TW|zh-CN|ar)/)?.[1] ?? 'ja'
+    return NextResponse.redirect(new URL(`/${locale}/goldvein-prep/login`, request.url))
+  }
+
   // /members/* はパスワード Cookie で保護
   if (pathWithoutLocale.startsWith('/members')) {
     const cookie = request.cookies.get('members-auth')
