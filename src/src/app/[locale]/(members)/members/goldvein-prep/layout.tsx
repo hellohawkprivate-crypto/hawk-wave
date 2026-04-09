@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
+import { LanguageSwitcher } from './language-switcher'
 
 const navItems = [
   { key: 'guide', href: '/members/goldvein-prep/guide' },
@@ -18,9 +19,12 @@ export default function GoldveinPrepLayout({ children }: { children: React.React
     <div className="min-h-screen bg-gray-50">
       {/* ヘッダー */}
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-4 py-4">
-          <p className="text-xs text-yellow-600 font-semibold uppercase tracking-wide">Members</p>
-          <h1 className="text-xl font-bold text-gray-900">{t('appName')}</h1>
+        <div className="max-w-5xl mx-auto px-4 py-4 flex items-start justify-between">
+          <div>
+            <p className="text-xs text-yellow-600 font-semibold uppercase tracking-wide">Members</p>
+            <h1 className="text-xl font-bold text-gray-900">{t('appName')}</h1>
+          </div>
+          <LanguageSwitcher />
         </div>
         {/* ナビゲーション */}
         <nav className="max-w-5xl mx-auto px-4">

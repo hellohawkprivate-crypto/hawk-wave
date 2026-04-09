@@ -20,11 +20,11 @@ export async function middleware(request: NextRequest) {
   if (pathWithoutLocale.startsWith('/members')) {
     const cookie = request.cookies.get('members-auth')
     if (cookie?.value !== process.env.MEMBERS_PASSWORD) {
-      // ロケールを保持してログインページへリダイレクト
       const locale = pathname.match(/^\/(ja|en|ko|zh-TW|zh-CN|ar)/)?.[1] ?? 'ja'
       return NextResponse.redirect(new URL(`/${locale}/login`, request.url))
     }
-    return NextResponse.next()
+    // 認証OK → ロケール処理も実行
+    return intlMiddleware(request)
   }
 
   // /staff/* は Discord OAuth セッションで保護
@@ -36,7 +36,7 @@ export async function middleware(request: NextRequest) {
     if (!token) {
       return NextResponse.redirect(new URL('/api/auth/signin', request.url))
     }
-    return NextResponse.next()
+    return intlMiddleware(request)
   }
 
   // それ以外はロケール処理
