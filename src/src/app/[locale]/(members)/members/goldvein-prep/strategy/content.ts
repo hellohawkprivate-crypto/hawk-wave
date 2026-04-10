@@ -80,7 +80,7 @@ const ja: StrategyContent = {
   flowTitle: '3週間の流れ',
   gpYes: '3Wに、攻撃側がGPを獲得する',
   gpYesDesc: '防衛側が全員GPにいても、攻撃側が勝利する状況',
-  gpYesCondition: '条件：❶か ❸の前提が崩れている（= 防衛側が強い / 防衛側が3週目で諦めた）',
+  gpYesCondition: '条件：❶か ❸の前提が崩れている（= 攻撃側が強い / 防衛側が3週目で諦めた）',
   gpYesTip: 'このパターンは想定しても意味がない',
   gpNo: '3Wに、攻撃側がGPを獲得しない',
   conditionLabel: '条件',
