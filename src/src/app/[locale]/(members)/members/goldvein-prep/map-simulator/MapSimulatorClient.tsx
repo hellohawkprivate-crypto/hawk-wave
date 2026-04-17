@@ -257,8 +257,8 @@ export default function MapSimulatorClient() {
             }
             if (isGP && !isActive) bgCss = 'rgba(99,102,241,0.6)'
 
-            const sizeW = isGP ? 10 : isCircle ? 9 : 8
-            const sizeH = isGP ? 10 : isCircle ? 9 : 8
+            const sizeW = isGP ? 13 : isCircle ? 12 : 11
+            const sizeH = isGP ? 13 : isCircle ? 12 : 11
 
             return (
               <button
