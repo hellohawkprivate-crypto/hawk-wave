@@ -23,12 +23,12 @@ export type WeekSnapshot = Record<string, FacilityState>
 // A(NW角) ↔ B(NE角) ↔ G(SW角) ↔ H(SE角)、C(NW内) ↔ D(NE内) ↔ E(SW内) ↔ F(SE内)
 export const FACILITY_DEFS: FacilityDef[] = [
   // NW角 - A区画 (SSH×5 + LC×1)
-  { id: 'A2', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 10,  left: 8  }, shape: 'square' },
-  { id: 'A3', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 10,  left: 18 }, shape: 'square' },
-  { id: 'A4', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 10,  left: 28 }, shape: 'square' },
-  { id: 'A5', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 22, left: 8  }, shape: 'square' },
-  { id: 'A1', type: 'LC',  name: '大型都市', points: 175,  position: { top: 22, left: 18 }, shape: 'circle' },
-  { id: 'A6', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 35, left: 8  }, shape: 'square' },
+  { id: 'A2', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 13,  left: 8  }, shape: 'square' },
+  { id: 'A3', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 13,  left: 18 }, shape: 'square' },
+  { id: 'A4', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 13,  left: 28 }, shape: 'square' },
+  { id: 'A5', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 26, left: 8  }, shape: 'square' },
+  { id: 'A1', type: 'LC',  name: '大型都市', points: 175,  position: { top: 26, left: 18 }, shape: 'circle' },
+  { id: 'A6', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 39, left: 8  }, shape: 'square' },
 
   // NW内 - C区画 (MSH×3 + MF×1) 2×2グリッド
   { id: 'C2', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 27, left: 31 }, shape: 'square' },
