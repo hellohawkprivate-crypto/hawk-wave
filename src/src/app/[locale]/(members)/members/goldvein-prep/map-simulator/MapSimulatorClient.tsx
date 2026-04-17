@@ -225,13 +225,21 @@ export default function MapSimulatorClient() {
       {/* マップ */}
       <div className="bg-white rounded-xl border border-gray-200 p-2 overflow-hidden">
         <div className="relative w-full" style={{ paddingTop: '100%' }}>
-          {/* 背景画像 */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/goldvein-map.png"
-            alt="マップ"
-            className="absolute inset-0 w-full h-full object-cover rounded-lg"
-          />
+          {/* CSS マップ背景 */}
+          <div className="absolute inset-0 rounded-lg overflow-hidden" style={{ backgroundColor: '#c8b89a' }}>
+            {/* 横線路 */}
+            <div className="absolute" style={{
+              top: '47%', left: 0, right: 0, height: '6%',
+              backgroundImage: 'repeating-linear-gradient(90deg, #7a6040 0px, #7a6040 16px, #c8b89a 16px, #c8b89a 24px)',
+              opacity: 0.6,
+            }} />
+            {/* 縦線路 */}
+            <div className="absolute" style={{
+              left: '47%', top: 0, bottom: 0, width: '6%',
+              backgroundImage: 'repeating-linear-gradient(180deg, #7a6040 0px, #7a6040 16px, #c8b89a 16px, #c8b89a 24px)',
+              opacity: 0.6,
+            }} />
+          </div>
 
           {/* 施設オーバーレイ */}
           {FACILITY_DEFS.map(def => {
