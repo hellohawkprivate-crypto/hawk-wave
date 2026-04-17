@@ -28,9 +28,9 @@ export const FACILITY_DEFS: FacilityDef[] = [
   { id: 'A5', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 14, left: 3  }, shape: 'square' },
   { id: 'A6', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 27, left: 3  }, shape: 'square' },
   // NW - C区画（中型拠点 + 軍事要塞）
-  { id: 'C1', type: 'MF',  name: '軍事要塞',   points: 496, position: { top: 35, left: 27 }, shape: 'circle' },
+  { id: 'C1', type: 'MF',  name: '軍事要塞',   points: 496, position: { top: 39, left: 27 }, shape: 'circle' },
   { id: 'C2', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 27, left: 15 }, shape: 'square' },
-  { id: 'C3', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 18, left: 26 }, shape: 'square' },
+  { id: 'C3', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 27, left: 26 }, shape: 'square' },
   { id: 'C4', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 39, left: 15 }, shape: 'square' },
   // NE - B区画（小型拠点 + 大都市）
   { id: 'B1', type: 'LC',  name: '大型都市',   points: 175, position: { top: 14, left: 73 }, shape: 'circle' },
