@@ -31,7 +31,8 @@
       "discussion": "ToDo",
       "analysis": "전력 분석",
       "guide": "플레이 방법",
-      "simulator": "시뮬레이터"
+      "simulator": "시뮬레이터",
+      "mapSimulator": "맵 SIM"
     },
     "sheet": {
       "heading": "전략 시트",

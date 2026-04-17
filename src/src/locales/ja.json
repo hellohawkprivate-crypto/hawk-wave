@@ -31,7 +31,8 @@
       "discussion": "ToDo",
       "analysis": "戦力分析",
       "guide": "遊び方",
-      "simulator": "シミュレーター"
+      "simulator": "シミュレーター",
+      "mapSimulator": "マップSIM"
     },
     "sheet": {
       "heading": "戦略シート",

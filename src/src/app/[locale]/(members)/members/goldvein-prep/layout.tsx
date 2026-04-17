@@ -8,6 +8,7 @@ const navItems = [
   { key: 'analysis', href: '/members/goldvein-prep/analysis' },
   { key: 'sheet', href: '/members/goldvein-prep/sheet' },
   { key: 'simulator', href: '/members/goldvein-prep/simulator' },
+  { key: 'mapSimulator', href: '/members/goldvein-prep/map-simulator' },
   { key: 'strategy', href: '/members/goldvein-prep/strategy' },
   { key: 'discussion', href: '/members/goldvein-prep/discussion' },
 ] as const

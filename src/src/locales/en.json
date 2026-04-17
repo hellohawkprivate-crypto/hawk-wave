@@ -31,7 +31,8 @@
       "discussion": "ToDo",
       "analysis": "Power Analysis",
       "guide": "How to Play",
-      "simulator": "Simulator"
+      "simulator": "Simulator",
+      "mapSimulator": "Map SIM"
     },
     "sheet": {
       "heading": "Strategy Sheet",
