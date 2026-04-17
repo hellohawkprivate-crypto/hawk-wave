@@ -19,57 +19,67 @@ export type FacilityState = {
 
 export type WeekSnapshot = Record<string, FacilityState>
 
+// 位置設計：中心(50,50)を軸に上下左右完全対称
+// A(NW角) ↔ B(NE角) ↔ G(SW角) ↔ H(SE角)、C(NW内) ↔ D(NE内) ↔ E(SW内) ↔ F(SE内)
 export const FACILITY_DEFS: FacilityDef[] = [
-  // NW - A区画（小型拠点 + 大都市）
-  { id: 'A1', type: 'LC',  name: '大型都市',   points: 175, position: { top: 14, left: 12 }, shape: 'circle' },
-  { id: 'A2', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 3,  left: 3  }, shape: 'square' },
-  { id: 'A3', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 3,  left: 12 }, shape: 'square' },
-  { id: 'A4', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 3,  left: 22 }, shape: 'square' },
-  { id: 'A5', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 14, left: 3  }, shape: 'square' },
-  { id: 'A6', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 27, left: 3  }, shape: 'square' },
-  // NW - C区画（中型拠点 + 軍事要塞）
-  { id: 'C1', type: 'MF',  name: '軍事要塞',   points: 496, position: { top: 39, left: 27 }, shape: 'circle' },
-  { id: 'C2', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 27, left: 15 }, shape: 'square' },
-  { id: 'C3', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 27, left: 26 }, shape: 'square' },
-  { id: 'C4', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 39, left: 15 }, shape: 'square' },
-  // NE - B区画（小型拠点 + 大都市）
-  { id: 'B1', type: 'LC',  name: '大型都市',   points: 175, position: { top: 14, left: 73 }, shape: 'circle' },
-  { id: 'B2', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 3,  left: 62 }, shape: 'square' },
-  { id: 'B3', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 3,  left: 72 }, shape: 'square' },
-  { id: 'B4', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 3,  left: 82 }, shape: 'square' },
-  { id: 'B5', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 14, left: 82 }, shape: 'square' },
-  { id: 'B6', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 27, left: 88 }, shape: 'square' },
-  // NE - D区画（中型拠点 + 軍事要塞）
-  { id: 'D1', type: 'MF',  name: '軍事要塞',   points: 496, position: { top: 35, left: 58 }, shape: 'circle' },
-  { id: 'D2', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 18, left: 60 }, shape: 'square' },
-  { id: 'D3', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 27, left: 70 }, shape: 'square' },
-  { id: 'D4', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 39, left: 70 }, shape: 'square' },
+  // NW角 - A区画 (SSH×5 + LC×1)
+  { id: 'A2', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 5,  left: 5  }, shape: 'square' },
+  { id: 'A3', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 5,  left: 14 }, shape: 'square' },
+  { id: 'A4', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 5,  left: 23 }, shape: 'square' },
+  { id: 'A5', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 15, left: 5  }, shape: 'square' },
+  { id: 'A1', type: 'LC',  name: '大型都市', points: 175,  position: { top: 15, left: 14 }, shape: 'circle' },
+  { id: 'A6', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 27, left: 5  }, shape: 'square' },
+
+  // NW内 - C区画 (MSH×3 + MF×1) 2×2グリッド
+  { id: 'C2', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 27, left: 17 }, shape: 'square' },
+  { id: 'C3', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 27, left: 28 }, shape: 'square' },
+  { id: 'C4', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 38, left: 17 }, shape: 'square' },
+  { id: 'C1', type: 'MF',  name: '軍事要塞', points: 496,  position: { top: 38, left: 28 }, shape: 'circle' },
+
+  // NE角 - B区画 (A の左右鏡: left → 100-left)
+  { id: 'B4', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 5,  left: 95 }, shape: 'square' },
+  { id: 'B3', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 5,  left: 86 }, shape: 'square' },
+  { id: 'B2', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 5,  left: 77 }, shape: 'square' },
+  { id: 'B5', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 15, left: 95 }, shape: 'square' },
+  { id: 'B1', type: 'LC',  name: '大型都市', points: 175,  position: { top: 15, left: 86 }, shape: 'circle' },
+  { id: 'B6', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 27, left: 95 }, shape: 'square' },
+
+  // NE内 - D区画 (C の左右鏡)
+  { id: 'D3', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 27, left: 83 }, shape: 'square' },
+  { id: 'D2', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 27, left: 72 }, shape: 'square' },
+  { id: 'D4', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 38, left: 83 }, shape: 'square' },
+  { id: 'D1', type: 'MF',  name: '軍事要塞', points: 496,  position: { top: 38, left: 72 }, shape: 'circle' },
+
   // Center - GP
-  { id: 'GP', type: 'GP',  name: 'パレス',     points: 3505, position: { top: 44, left: 45 }, shape: 'square' },
-  // SW - G区画（小型拠点 + 大都市）
-  { id: 'G1', type: 'LC',  name: '大型都市',   points: 175, position: { top: 76, left: 12 }, shape: 'circle' },
-  { id: 'G2', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 66, left: 3  }, shape: 'square' },
-  { id: 'G3', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 76, left: 3  }, shape: 'square' },
-  { id: 'G4', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 87, left: 3  }, shape: 'square' },
-  { id: 'G5', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 87, left: 12 }, shape: 'square' },
-  { id: 'G6', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 87, left: 22 }, shape: 'square' },
-  // SW - E区画（中型拠点 + 軍事要塞）
-  { id: 'E1', type: 'MF',  name: '軍事要塞',   points: 496, position: { top: 56, left: 28 }, shape: 'circle' },
-  { id: 'E2', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 56, left: 17 }, shape: 'square' },
-  { id: 'E3', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 66, left: 17 }, shape: 'square' },
-  { id: 'E4', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 66, left: 27 }, shape: 'square' },
-  // SE - H区画（小型拠点 + 大都市）
-  { id: 'H1', type: 'LC',  name: '大型都市',   points: 175, position: { top: 76, left: 76 }, shape: 'circle' },
-  { id: 'H2', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 66, left: 88 }, shape: 'square' },
-  { id: 'H3', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 76, left: 88 }, shape: 'square' },
-  { id: 'H4', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 87, left: 62 }, shape: 'square' },
-  { id: 'H5', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 87, left: 72 }, shape: 'square' },
-  { id: 'H6', type: 'SSH', name: '小型拠点',   points: 40,  position: { top: 87, left: 88 }, shape: 'square' },
-  // SE - F区画（中型拠点 + 軍事要塞）
-  { id: 'F1', type: 'MF',  name: '軍事要塞',   points: 496, position: { top: 56, left: 58 }, shape: 'circle' },
-  { id: 'F2', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 56, left: 70 }, shape: 'square' },
-  { id: 'F3', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 66, left: 60 }, shape: 'square' },
-  { id: 'F4', type: 'MSH', name: '中型拠点',   points: 251, position: { top: 66, left: 70 }, shape: 'square' },
+  { id: 'GP', type: 'GP',  name: 'パレス',   points: 3505, position: { top: 50, left: 50 }, shape: 'square' },
+
+  // SW角 - G区画 (A の上下鏡: top → 100-top)
+  { id: 'G2', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 73, left: 5  }, shape: 'square' },
+  { id: 'G3', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 85, left: 5  }, shape: 'square' },
+  { id: 'G1', type: 'LC',  name: '大型都市', points: 175,  position: { top: 85, left: 14 }, shape: 'circle' },
+  { id: 'G4', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 95, left: 5  }, shape: 'square' },
+  { id: 'G5', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 95, left: 14 }, shape: 'square' },
+  { id: 'G6', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 95, left: 23 }, shape: 'square' },
+
+  // SW内 - E区画 (C の上下鏡: top → 100-top)
+  { id: 'E2', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 62, left: 17 }, shape: 'square' },
+  { id: 'E1', type: 'MF',  name: '軍事要塞', points: 496,  position: { top: 62, left: 28 }, shape: 'circle' },
+  { id: 'E3', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 73, left: 17 }, shape: 'square' },
+  { id: 'E4', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 73, left: 28 }, shape: 'square' },
+
+  // SE角 - H区画 (A の上下左右鏡)
+  { id: 'H2', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 73, left: 95 }, shape: 'square' },
+  { id: 'H3', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 85, left: 95 }, shape: 'square' },
+  { id: 'H1', type: 'LC',  name: '大型都市', points: 175,  position: { top: 85, left: 86 }, shape: 'circle' },
+  { id: 'H6', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 95, left: 95 }, shape: 'square' },
+  { id: 'H5', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 95, left: 86 }, shape: 'square' },
+  { id: 'H4', type: 'SSH', name: '小型拠点', points: 40,   position: { top: 95, left: 77 }, shape: 'square' },
+
+  // SE内 - F区画 (C の上下左右鏡)
+  { id: 'F1', type: 'MF',  name: '軍事要塞', points: 496,  position: { top: 62, left: 72 }, shape: 'circle' },
+  { id: 'F2', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 62, left: 83 }, shape: 'square' },
+  { id: 'F3', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 73, left: 72 }, shape: 'square' },
+  { id: 'F4', type: 'MSH', name: '中型拠点', points: 251,  position: { top: 73, left: 83 }, shape: 'square' },
 ]
 
 // 2W初期値（1戦目終了後）
